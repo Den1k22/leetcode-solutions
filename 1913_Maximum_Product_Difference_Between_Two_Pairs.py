@@ -10,10 +10,12 @@ Constraints:
 4 <= nums.length <= 10^4
 1 <= nums[i] <= 10^4
 """
+from typing import List
 
 class Solution:
     def maxProductDifference(self, nums: List[int]) -> int:
-        pass
+        nums.sort()
+        return (nums[-1] * nums[-2]) - (nums[0]*nums[1])
 
 """
 Example 1:
