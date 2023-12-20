@@ -14,7 +14,13 @@ from typing import List
 
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
-        pass
+        prices.sort()
+        res = money - prices[0] - prices[1]
+
+        if res >= 0:
+            return res
+        else:
+            return money
 """
 Example 1:
 Input: prices = [1,2,2], money = 3
