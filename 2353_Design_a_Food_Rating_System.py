@@ -25,7 +25,6 @@ cuisine will be a type of cuisine of at least one food item in the system across
 At most 2 * 10^4 calls in total will be made to changeRating and highestRated.
 """
 from typing import List
-from sortedcontainers import SortedSet
 
 class FoodRatings:
 
