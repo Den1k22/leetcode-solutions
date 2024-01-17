@@ -14,21 +14,21 @@ s and t consist of lowercase English letters only.
 
 class Solution {
     func minSteps(_ s: String, _ t: String) -> Int {
-        var t_hash = [Character: Int]()
+        var tHash = [Character: Int]()
 
         for char in t {
-            if let charCount = t_hash[char] {
-                t_hash[char] = charCount + 1
+            if let charCount = tHash[char] {
+                tHash[char] = charCount + 1
             } else {
-                t_hash[char] = 1
+                tHash[char] = 1
             }
         }
 
         var lettersForReplace = 0
         for char in s {
-            if let charCount = t_hash[char] {
+            if let charCount = tHash[char] {
                 if charCount > 0 {
-                    t_hash[char] = charCount - 1
+                    tHash[char] = charCount - 1
                 } else {
                     lettersForReplace += 1
                 }
