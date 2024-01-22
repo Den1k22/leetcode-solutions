@@ -13,37 +13,27 @@ from typing import List
 
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        true_set = [i + 1 for i in range(len(nums))]
-        used_nums = {}
+        init_sum = len(nums)*(len(nums)+1)/2
+        missing_num = int(init_sum - sum(set(nums)))
+        duplicated_num = int(sum(nums) - init_sum + missing_num)
+        return [duplicated_num, missing_num]
+
+        # true_set = [i + 1 for i in range(len(nums))]
+        # used_nums = {}
         
-        duplicate = 0
-        missing_number = 0
-        while (nums):        
-            num = nums.pop()
+        # duplicate = 0
+        # while (nums):        
+        #     num = nums.pop()
+
+        #     if num in used_nums:
+        #         duplicate = num
+        #     else:
+        #         used_nums[num] = 1
             
-            if num in used_nums:
-                duplicate = num
-            else:
-                used_nums[num] = 1
+        #     if num in true_set:
+        #         true_set.remove(num)
             
-            if num in true_set:
-                true_set.remove(num)
-            
-        return [duplicate, true_set[0]]
-        
-        # increasing_order = (nums[0] == 1)
-        
-        # if increasing_order:
-        #     operational_range = range(0, len(nums))
-        # else:
-        #     operational_range = range(len(nums)-1, -1, -1)
-        
-        # for i in operational_range:
-        #     if i + 1 != nums[i]:
-        #         if increasing_order:
-        #             return [nums[i], i + 1]
-        #         else:
-        #             return [nums[i], i - 1]
+        # return [duplicate, true_set[0]]
                 
 """
 Example 1:
