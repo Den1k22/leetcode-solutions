@@ -25,6 +25,7 @@ Could you solve it in-place? Remember that the board needs to be updated simulta
 In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches upon the border of the array (i.e., live cells reach the border). How would you address these problems?
 """
 from typing import List
+import copy
 
 class Solution:
     def get_neighbors_count(self, x: int, y: int, board: List[List[int]], n: int, m: int) -> int:
@@ -50,23 +51,16 @@ class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:
         m = len(board)
         n = len(board[0])
+        original = copy.deepcopy(board)
 
-        answer = []
         for i in range(m):
-            temp = []
             for j in range(n):
-                count = self.get_neighbors_count(j, i, board, n, m)
+                count = self.get_neighbors_count(j, i, original, n, m)
+                print(count)
                 if count > 3 or count < 2:
-                    temp.append(0)
+                    board[i][j] = 0
                 elif (count == 3):
-                    temp.append(1)
-                else:
-                     temp.append(board[i][j])
-            answer.append(temp)
-
-        for i in range(m):
-            for j in range(n):
-              board[i][j] = answer[i][j]
+                    board[i][j] = 1
         
 """
 Example 1:
