@@ -36,7 +36,7 @@ class Solution:
                 dp[i] = dp[i+1]
             i -= 1
         
-        return max(dp)
+        return dp[0]
 """
 Example 1:
 Input: questions = [[3,2],[4,3],[4,4],[2,5]]
