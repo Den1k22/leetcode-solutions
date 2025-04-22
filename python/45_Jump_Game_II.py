@@ -29,6 +29,17 @@ class Solution:
             
         return jumps
 
+        # n = len(nums)
+        # nums[-1] = 0
+        # i = n - 2
+        # while i >= 0:
+        #     if nums[i] == 0:
+        #         nums[i] = nums[i+1] + 1
+        #     else:
+        #         nums[i] = min(nums[i + 1:i + 1+nums[i]]) + 1
+        #     i -= 1
+        # return nums[0]
+
 """
 Example 1:
 Input: nums = [2,3,1,1,4]
